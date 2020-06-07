@@ -59,7 +59,7 @@ class SortNumbers extends Command
         $sorter = new Sorter($numbers);
 
         $start = microtime(true);
-        $sortedNumbers = $sorter->numericSort();
+        $sortedNumbers = $sorter->insertionSort();
 
         // display unsorted results
         $this->line('');
@@ -72,7 +72,7 @@ class SortNumbers extends Command
         $headers = ['Sorted'];
         $rows = [];
 
-        foreach($sortedNumbers as $sortedNumber) {
+        foreach ($sortedNumbers as $sortedNumber) {
             $rows[] = [$sortedNumber];
         }
 
@@ -84,7 +84,7 @@ class SortNumbers extends Command
 
         // display sorted results
         $this->table($headers, $rows);
-        
+
         $this->line('');
         $this->info('Done!');
         $this->line('');

@@ -53,16 +53,15 @@ class SortPowers extends Command
             $a = $faker->numberBetween(100, 10000);
             $b = $faker->numberBetween(100, 10000);
 
-            $number = $a^$b;
-            $numbers[] = $number;
-            $rows[] = [$number];
+            $numbers[] = [$a, $b];
+            $rows[] = [sprintf("%s^%s", $a, $b)];
         }
 
         // sort the array of numbers
         $sorter = new Sorter($numbers);
 
         $start = microtime(true);
-        $sortedNumbers = $sorter->numericSort();
+        $sortedNumbers = $sorter->powerSort();
 
         // display unsorted results
         $this->line('');
@@ -75,8 +74,9 @@ class SortPowers extends Command
         $headers = ['Sorted'];
         $rows = [];
 
-        foreach($sortedNumbers as $sortedNumber) {
-            $rows[] = [$sortedNumber];
+        foreach ($sortedNumbers as $index => $array) {
+            list($base, $exponent) = $array;
+            $rows[] = [sprintf("%s^%s", $base, $exponent)];
         }
 
         // display sorted results
@@ -87,7 +87,7 @@ class SortPowers extends Command
         $this->line('');
         $this->info($usage);
         $this->line('');
-        
+
         $this->line('');
         $this->info('Done!');
         $this->line('');
