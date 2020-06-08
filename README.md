@@ -10,6 +10,8 @@ The docker setup is from this Digital Ocean blog post:
 
 https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and-mysql-with-docker-compose
 
+To build the project, run `docker-compose up -d`
+
 ### Composer
 
 Using locally installed composer:
