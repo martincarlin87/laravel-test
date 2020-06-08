@@ -46,8 +46,6 @@ class Sorter
     public function powerSort(): array
     {
         usort($this->numbers, function ($a, $b) {
-            // base numbers are the array key and exponents the value
-            // first check if the exponent is larger
             list($baseA, $exponentA) = $a;
             list($baseB, $exponentB) = $b;
 
